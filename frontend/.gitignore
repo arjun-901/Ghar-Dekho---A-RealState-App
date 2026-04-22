@@ -1,0 +1,26 @@
+# Node.js
+node_modules/
+
+# Build and Dist
+dist/
+build/
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS Files
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
