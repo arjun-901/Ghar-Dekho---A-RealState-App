@@ -23,8 +23,8 @@ const SellerSidebar = ({ isOpen, setIsOpen }) => {
     }}>
       <div style={{ padding: "1.5rem", borderBottom: "1px solid #f1f5f9", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <Link to="/" style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "1.2rem", fontWeight: 800, color: "#0d9488", textDecoration: "none" }}>
-          <span style={{ background: "#0d9488", color: "#fff", padding: "4px 8px", borderRadius: "8px", fontSize: "0.8rem" }}>R</span>
-          ReeState Seller
+          <span style={{ background: "#0d9488", color: "#fff", padding: "4px 8px", borderRadius: "8px", fontSize: "0.8rem" }}>E</span>
+          EstateX Seller
         </Link>
       </div>
 

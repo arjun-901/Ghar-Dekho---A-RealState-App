@@ -18,7 +18,10 @@ const Register = () => {
     try {
       const res = await axios.post(`${API_URL}/api/auth/register`, formData);
       login(res.data.user, res.data.token);
-      navigate(res.data.user.role === "seller" ? "/dashboard" : "/");
+      if (res.data.user.role === "admin") navigate("/admin-dashboard");
+      else if (res.data.user.role === "seller") navigate("/dashboard");
+      else if (res.data.user.role === "buyer") navigate("/buyer-dashboard");
+      else navigate("/");
     } catch (err) { setError(err.response?.data?.message || "Registration failed"); }
     finally { setLoading(false); }
   };
@@ -29,7 +32,7 @@ const Register = () => {
     <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f8fafc", paddingTop: "80px" }}>
       <div className="card-premium" style={{ padding: "3rem", width: "100%", maxWidth: "440px" }}>
         <h2 style={{ textAlign: "center", marginBottom: "0.5rem" }}>Create Account</h2>
-        <p style={{ textAlign: "center", color: "#64748b", marginBottom: "2rem" }}>Join ReeState today</p>
+        <p style={{ textAlign: "center", color: "#64748b", marginBottom: "2rem" }}>Join EstateX today</p>
         {error && <div style={{ padding: "0.75rem", background: "#fee2e2", color: "#dc2626", borderRadius: "0.75rem", marginBottom: "1rem" }}>{error}</div>}
         <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
           <div><label style={{ display: "block", marginBottom: "0.5rem", fontWeight: 600 }}>Full Name</label>

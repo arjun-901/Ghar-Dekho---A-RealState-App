@@ -38,7 +38,7 @@ app.use("/api/inquiry", inquiryRoutes);
 
 // Health check
 app.get("/", (req, res) => {
-  res.json({ message: "RealState API is running" });
+  res.json({ message: "EstateX API is running" });
 });
 
 // Connect to MongoDB and start server

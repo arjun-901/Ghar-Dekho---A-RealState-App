@@ -8,8 +8,8 @@ const sendEmail = async ({ email, subject, message }) => {
     },
     body: JSON.stringify({
       sender: {
-        name: "ReeState",
-        email: process.env.EMAIL_FROM || "noreply@reestate.com",
+        name: "EstateX",
+        email: process.env.EMAIL_FROM || "noreply@estatex.com",
       },
       to: [{ email }],
       subject,

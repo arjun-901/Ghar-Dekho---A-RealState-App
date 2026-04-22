@@ -20,6 +20,7 @@ const Login = () => {
       login(res.data.user, res.data.token);
       if (res.data.user.role === "admin") navigate("/admin-dashboard");
       else if (res.data.user.role === "seller") navigate("/dashboard");
+      else if (res.data.user.role === "buyer") navigate("/buyer-dashboard");
       else navigate("/");
     } catch (err) { setError(err.response?.data?.message || "Login failed"); }
     finally { setLoading(false); }

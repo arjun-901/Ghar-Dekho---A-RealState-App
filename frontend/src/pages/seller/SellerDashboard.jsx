@@ -19,8 +19,16 @@ const SellerDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
-    if (!token || user?.role !== "seller") {
+    if (!token) {
       navigate("/login");
+      return;
+    }
+    if (user?.role === "buyer") {
+      navigate("/buyer-dashboard");
+      return;
+    }
+    if (user?.role === "admin") {
+      navigate("/admin-dashboard");
       return;
     }
     const fetchData = async () => {
@@ -101,7 +109,7 @@ const SellerDashboard = () => {
       <div className={`sidebar-backdrop ${sidebarOpen ? 'show' : ''}`} onClick={() => setSidebarOpen(false)}></div>
       <SellerSidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
       <div className="dashboard-main">
-        <div className="dashboard-mobile-header" style={{ display: "none", padding: "1rem", background: "#fff", borderBottom: "1px solid #e2e8f0", alignItems: "center", gap: "1rem" }}>
+        <div className="dashboard-mobile-header" style={{ padding: "1rem", background: "#fff", borderBottom: "1px solid #e2e8f0", alignItems: "center", gap: "1rem" }}>
           <button onClick={() => setSidebarOpen(true)} style={{ background: "none", border: "none", cursor: "pointer", display: "flex" }}><HiMenu size={24} /></button>
           <div style={{ fontWeight: "bold", fontSize: "1.2rem" }}>Dashboard</div>
         </div>

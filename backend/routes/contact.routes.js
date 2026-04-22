@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
       try {
         await sendEmail({
           email: adminEmail,
-          subject: "New Contact - ReeState",
+          subject: "New Contact - EstateX",
           message: `<h2>New Contact</h2><p>From: ${name} (${email})</p><p>${message}</p>`,
         });
       } catch (e) { console.error(e); }

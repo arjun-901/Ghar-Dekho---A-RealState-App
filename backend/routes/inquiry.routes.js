@@ -36,6 +36,19 @@ router.get("/seller", protect, async (req, res) => {
   }
 });
 
+// Get inquiries for buyer
+router.get("/buyer", protect, async (req, res) => {
+  try {
+    const inquiries = await Inquiry.find({ buyer: req.user._id })
+      .populate("property", "title images price city")
+      .populate("seller", "name email phone")
+      .sort({ createdAt: -1 });
+    res.json({ success: true, inquiries });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
 // Mark inquiry as read
 router.patch("/:id/read", protect, async (req, res) => {
   try {

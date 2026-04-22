@@ -16,6 +16,9 @@ import Login from "./pages/auth/Login.jsx";
 import Register from "./pages/auth/Register.jsx";
 import ResetPassword from "./pages/auth/ResetPassword.jsx";
 
+// Pages - Buyer
+import BuyerDashboard from "./pages/buyer/BuyerDashboard.jsx";
+
 // Pages - Seller
 import SellerDashboard from "./pages/seller/SellerDashboard.jsx";
 import AddProperty from "./pages/seller/AddProperty.jsx";
@@ -53,6 +56,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
+
+        {/* Buyer */}
+        <Route path="/buyer-dashboard" element={<BuyerDashboard />} />
 
         {/* Seller */}
         <Route path="/dashboard" element={<SellerDashboard />} />
